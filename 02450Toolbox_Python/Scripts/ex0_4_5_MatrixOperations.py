@@ -19,7 +19,7 @@ y = np.asmatrix(np.arange(2,12,2))
 # Again, have a look at them by typing 'x' and 'y' in the console
 
 # Try using the * operator just as before now:
-x*y
+# x*y
 # You should now get an error - try to explain why.
 
 # array and matrix are two data structures added by NumPy package to the list of
