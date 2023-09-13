@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 
 # Load the textDocs.txt as a long string into raw_file:
-with open('../Data/textDocs.txt', 'r') as f:
+with open('02450Toolbox_Python/Data/textDocs.txt', 'r') as f:
     raw_file = f.read()
 # raw_file contains sentences seperated by newline characters, 
 # so we split by '\n':
@@ -34,7 +34,7 @@ vectorizer = CountVectorizer(token_pattern=r'\b[^\d\W]+\b')
 vectorizer.fit(corpus)
 # The vectorizer has now determined the unique terms (or tokens) in the corpus
 # and we can extract them using:
-attributeNames = vectorizer.get_feature_names()
+attributeNames = vectorizer.get_feature_names_out()
 print('Found terms:')
 print(attributeNames)
 print()
