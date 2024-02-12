@@ -37,3 +37,4 @@ ylabel('PC{0}'.format(j+1))
 show()
 
 print('Ran Exercise 2.1.4')
+# The PCA plot displays more variance

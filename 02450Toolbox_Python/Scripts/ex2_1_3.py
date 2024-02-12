@@ -10,6 +10,7 @@ Y = X - np.ones((N,1))*X.mean(axis=0)
 
 # PCA by computing SVD of Y
 U,S,V = svd(Y,full_matrices=False)
+# print('S', S)
 
 # Compute variance explained by principal components
 rho = (S*S) / (S*S).sum()

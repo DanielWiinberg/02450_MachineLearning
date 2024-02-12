@@ -13,7 +13,7 @@ similarity_measure = 'SMC'
 
 # Load the digits
 # Load Matlab data file to python dict structure
-X = loadmat('../Data/digits.mat')['X']
+X = loadmat('02450Toolbox_Python/Data/digits.mat')['X']
 # You can also try the CBCL faces dataset (remember to change 'transpose')
 #X = loadmat('../Data/wildfaces_grayscale.mat')['X']
 N, M = X.shape
