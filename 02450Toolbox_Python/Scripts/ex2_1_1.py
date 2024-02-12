@@ -21,7 +21,6 @@ y = np.asarray([classDict[value] for value in classLabels])
 X = np.empty((90, 8))
 for i, col_id in enumerate(range(3, 11)):
     X[:, i] = np.asarray(doc.col_values(col_id, 2, 92))
-
 # Compute values of N, M and C.
 N = len(y)
 M = len(attributeNames)

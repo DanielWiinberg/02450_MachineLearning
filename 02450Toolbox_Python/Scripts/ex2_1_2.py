@@ -7,14 +7,14 @@ from ex2_1_1 import *
 from matplotlib.pyplot import figure, plot, title, legend, xlabel, ylabel, show
 
 # Data attributes to be plotted
-i = 0
-j = 1
+A = 0
+B = 1
 
 ##
 # Make a simple plot of the i'th attribute against the j'th attribute
 # Notice that X is of matrix type (but it will also work with a numpy array)
 # X = np.array(X) #Try to uncomment this line
-plot(X[:, i], X[:, j], 'o')
+plot(X[:, A], X[:, B], 'o')
 
 # %%
 # Make another more fancy plot that includes legend, class labels, 
@@ -25,11 +25,11 @@ title('NanoNose data')
 for c in range(C):
     # select indices belonging to class c:
     class_mask = y==c
-    plot(X[class_mask,i], X[class_mask,j], 'o',alpha=.3)
+    plot(X[class_mask,A], X[class_mask,B], 'o',alpha=.3)
 
 legend(classNames)
-xlabel(attributeNames[i])
-ylabel(attributeNames[j])
+xlabel(attributeNames[A])
+ylabel(attributeNames[B])
 
 # Output result to screen
 show()

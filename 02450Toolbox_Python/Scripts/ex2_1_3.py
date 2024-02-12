@@ -12,18 +12,19 @@ Y = X - np.ones((N,1))*X.mean(axis=0)
 U,S,V = svd(Y,full_matrices=False)
 
 # Compute variance explained by principal components
-rho = (S*S) / (S*S).sum() 
+rho = (S*S) / (S*S).sum()
+print(rho)
 
-threshold = 0.9
+threshold = 0.95
 
 # Plot variance explained
 plt.figure()
-plt.plot(range(1,len(rho)+1),rho,'x-')
-plt.plot(range(1,len(rho)+1),np.cumsum(rho),'o-')
+plt.plot(range(1,len(rho)+1),rho,'x-') # Explained variance by single PC
+plt.plot(range(1,len(rho)+1),np.cumsum(rho),'o-') # Cumulated values
 plt.plot([1,len(rho)],[threshold, threshold],'k--')
-plt.title('Variance explained by principal components');
-plt.xlabel('Principal component');
-plt.ylabel('Variance explained');
+plt.title('Variance explained by principal components')
+plt.xlabel('Principal component')
+plt.ylabel('Variance explained')
 plt.legend(['Individual','Cumulative','Threshold'])
 plt.grid()
 plt.show()
