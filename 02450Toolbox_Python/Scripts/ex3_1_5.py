@@ -6,10 +6,10 @@ from toolbox_02450.similarity import similarity
 from ex3_1_4 import *
 
 # Query vector
-q = np.array([0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0])
+# q = np.array([0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0])
 # notice, that you could get the query vector using the vectorizer, too:
-#q = vectorizer.transform(['matrix rank solv'])
-#q = np.asarray(q.toarray())
+q = vectorizer.transform(['matrix rank solv'])
+q = np.asarray(q.toarray())
 # or use any other string:
 #q = vectorizer.transform(['Can I Google how to fix my problem?'])
 #q = np.asarray(q.toarray())
@@ -25,7 +25,7 @@ for i in range(N):
 sim = (q @ X.T).T / (np.sqrt(np.power(X,2).sum(axis=1)) * np.sqrt(np.power(q,2).sum()))
 
 # Method 3 (use the "similarity" function)
-sim = similarity(X, q, 'cos');
+sim = similarity(X, q, 'cos')
 
 
 # Display the result

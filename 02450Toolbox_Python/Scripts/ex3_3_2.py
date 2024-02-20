@@ -4,9 +4,11 @@ import numpy as np
 from toolbox_02450.similarity import similarity
 
 # Generate two data objects with M random attributes
-M = 5;
+M = 5
 x = np.random.rand(1,M)
 y = np.random.rand(1,M)
+
+print(x, y)
 
 # Two constants
 a = 1.5

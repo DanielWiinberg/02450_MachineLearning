@@ -9,7 +9,7 @@ from toolbox_02450.similarity import similarity
 i = 1
 
 # Similarity: 'SMC', 'Jaccard', 'ExtendedJaccard', 'Cosine', 'Correlation' 
-similarity_measure = 'SMC'
+similarity_measure = 'Cosine'
 
 # Load the digits
 # Load Matlab data file to python dict structure
