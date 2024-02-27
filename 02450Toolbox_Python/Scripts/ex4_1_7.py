@@ -6,7 +6,7 @@ import numpy as np
 from scipy.io import loadmat
 
 # Digits to include in analysis (to include all, n = range(10) )
-n = [1]
+n = [3]
 
 # Number of digits to generate from normal distributions
 ngen = 10
@@ -33,7 +33,7 @@ s = X.std(ddof=1, axis=0)
 S = np.cov(X, rowvar=0, ddof=1)
 
 # Generate 10 samples from 1-D normal distribution
-Xgen = np.random.randn(ngen,256)
+Xgen = np.random.randn(ngen,256) # 256 pixels
 for i in range(ngen):
     Xgen[i] = np.multiply(Xgen[i],s) + mu
 
@@ -42,7 +42,7 @@ figure()
 for k in range(ngen):
     subplot(2, int(np.ceil(ngen/2.)), k+1)
     I = np.reshape(Xgen[k,:], (16,16))
-    imshow(I, cmap=cm.gray_r);
+    imshow(I, cmap=cm.gray_r)
     xticks([]); yticks([])
     if k==1: title('Digits: 1-D Normal')
 

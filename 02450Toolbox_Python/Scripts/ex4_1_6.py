@@ -7,7 +7,7 @@ from scipy.io import loadmat
 import numpy as np
 
 # Digits to include in analysis (to include all: n = range(10))
-n = [0]
+n = [2]
 
 # Load Matlab data file to python dict structure
 # and extract variables of interest
@@ -25,6 +25,9 @@ for v in n:
 X = X[class_mask,:]
 y = y[class_mask]
 N = np.shape(X)[0]
+
+## The standard deviations are going to be biggest around the edges of the digits, since we are at the intersection
+# of whether there is ink or not. 
 
 mu = X.mean(axis=0)
 s = X.std(ddof=1, axis=0)

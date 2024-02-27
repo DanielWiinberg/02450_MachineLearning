@@ -5,7 +5,7 @@ import numpy as np
 from scipy import stats
 
 # Number of samples
-N = 500
+N = 50000 # Increase N to get a better approximation of the pdf
 
 # Mean
 mu = 17
@@ -14,10 +14,10 @@ mu = 17
 s = 2
 
 # Number of bins in histogram
-nbins = 20
+nbins = 50
 
 # Generate samples from the Normal distribution
-X = np.random.normal(mu,s,N).T 
+X = np.random.normal(mu,s,N).T
 # or equally:
 X = np.random.randn(N).T * s + mu
 
@@ -28,7 +28,7 @@ hist(X, bins=nbins, density=True)
 
 # Over the histogram, plot the theoretical probability distribution function:
 x = np.linspace(X.min(), X.max(), 1000)
-pdf = stats.norm.pdf(x,loc=17,scale=2)
+pdf = stats.norm.pdf(x,loc=mu,scale=2)
 plot(x,pdf,'.',color='red')
 
 # Compute empirical mean and standard deviation
