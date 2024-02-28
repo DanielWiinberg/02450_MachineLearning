@@ -28,5 +28,6 @@ X = X[:,0:11]
 attributeNames = attributeNames[0:11]
 # Update N and M
 N, M = X.shape
+print(N, M)
 
 print('Ran Exercise 5.1.5')
