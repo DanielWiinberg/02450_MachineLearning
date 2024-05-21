@@ -46,11 +46,25 @@ def calculateConfMatrixStats(conf_matrix):
   print(f'TNR:{"{:.3f}".format(TNR)}, FPR :{"{:.3f}".format(FPR)}')
   print()
 
+#SIMILIRATY MEASURES
+def rand_jaccard_index(zq_matrix):
+  S = np.sum(np.vectorize(lambda x: (x * (x-1)) / 2)(zq_matrix))
+  
+  nk = np.sum(zq_matrix, axis=1)
+  nm = np.sum(zq_matrix, axis=0)
+
+  N = np.sum(zq_matrix)
+  D = (N * (N - 1)) / 2 - sum([(i * (i -1)) / 2 for i in nk]) - sum([(i * (i -1)) / 2 for i in nm]) + S
+
+  rand = (S + D) / (0.5 * N * (N - 1))
+  jaccard = S / (0.5 * N * (N - 1) - D)
+  
+  return f'Rand: {rand}, Jaccard: {jaccard}, S: {S}, D: {D}'
+
 ##########################################################
 # DECISION TREES
 
 # Impurity measures
-
 def gini(node):
   c = len(node)
   N = sum(node)
@@ -64,9 +78,22 @@ def purityGainGini(root, v1, v2):
   p2 = (sum(v2) / sum(root)) * gini(v2)
   return gini(root) - p1 - p2
 
+def purityGainClassError(root, v1, v2):
+  N = sum(root)
+
+  Ir = 1 - (max(root) / N)
+  Iv1 = 1 - (max(v1) / sum(v1))
+  Iv2 = 1 - (max(v2) / sum(v2))
+
+  delta = Ir - (sum(v1) / N) * Iv1 - (sum(v2) / N) * Iv2
+  return delta
 
 ##########################################################
 # DENSITY ESTIMATION
+
+def average_linkage(C1, C2):
+  # C1 is dis
+  return
 
 def gaussian_KDE(vector, bandwidth):
   kde = gaussian_kde(vector, bw_method=bandwidth)
