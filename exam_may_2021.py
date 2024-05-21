@@ -11,7 +11,7 @@ x = np.array([15.5-12.9, 59.2-58.2, 1.4-1.7, 1438-1436.8, 5.3-4.1])
 
 # QUESTION 4
 print('2021 Question 4')
-print(np.dot(x, v))
+print(np.dot(x.T, v))
 print()
 
 # Question 5
@@ -19,3 +19,8 @@ x2 = np.array([39, 415, -7, -6727, 143])
 x3 = np.array([0, -7, 1, 108, -2])
 calculateCovarianceAndCorrelation(x2, x3)
 print()
+
+#Question 6
+o3 = [5.2, 5.4]
+neighbours_o3 = [[4.0, 3.5], [3.3, 4.8]]
+print('question 6:', average_relative_density(o3, neighbours_o3))
